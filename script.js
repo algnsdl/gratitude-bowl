@@ -86,17 +86,16 @@ function renderHearts(data) {
     heart.style.bottom = `${position.y}px`;
 
     const colors = [
-      "#ff6f91",
-      "#ff8fab",
-      "#ffb3c6",
-      "#ffc2d1",
-      "#fb6f92",
-      "#f9a8d4",
-      "#c084fc",
-      "#a78bfa",
-      "#fda4af",
-      "#fbcfe8"
-    ];
+  "#ff6f91",
+  "#ff8fab",
+  "#f9a8d4",
+
+  "#ffd670",
+  "#a9def9",
+  "#cdb4db",
+  "#caffbf",
+  "#fff3b0",
+];
 
     heart.style.background = colors[index % colors.length];
 

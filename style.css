@@ -18,13 +18,14 @@ body {
 .hero {
   text-align: center;
   padding: 12px 0 8px;
+  width: 100%;
 }
 
 .guide-image {
   display: block;
-  width: 620px !important;
-  max-width: 100% !important;
-  height: auto !important;
+  width: 100%;
+  max-width: none;
+  height: auto;
   margin: 0 auto;
   border-radius: 28px;
   box-shadow: 0 14px 32px rgba(174, 84, 120, 0.18);

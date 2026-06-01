@@ -282,8 +282,10 @@ button:hover {
 }
 
 #gratitudeCount {
+  display: block;
   font-size: 22px;
   font-weight: 800;
   color: #e65f8f;
+  margin-bottom: 16px;
 }
 }

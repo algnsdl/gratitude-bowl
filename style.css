@@ -21,7 +21,8 @@ body {
 }
 
 .guide-image {
-  width: min(620px, 100%);
+  width: 380px;
+  max-width: 90%;
   border-radius: 28px;
   box-shadow: 0 14px 32px rgba(174, 84, 120, 0.18);
 }

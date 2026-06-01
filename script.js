@@ -42,7 +42,7 @@ form.addEventListener("submit", async (e) => {
     message.textContent = "하나님 감사합니다💗";
     form.reset();
 
-    setTimeout(loadData, 900);
+    setTimeout(loadData, 1500);
   } catch (error) {
     message.textContent = "오류가 발생했습니다. 다시 시도해주세요.";
   }
@@ -141,8 +141,9 @@ loadData();
 window.addEventListener("resize", () => {
   renderHearts(gratitudeData);
 });
+
 function updateCount(data) {
-  const count = data.length;
+  const count = Array.isArray(data) ? data.length : 0;
 
   gratitudeCount.textContent =
     `❤️ 지금까지 ${count}개의 감사가 담겼어요`;

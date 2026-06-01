@@ -23,7 +23,7 @@ body {
 .guide-image {
   display: block;
   width: 620px !important;
-  max-width: 90% !important;
+  max-width: 100% !important;
   height: auto !important;
   margin: 0 auto;
   border-radius: 28px;

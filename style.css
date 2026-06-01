@@ -276,4 +276,14 @@ button:hover {
   .heart::after {
     left: 18px;
   }
+  .count-box {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#gratitudeCount {
+  font-size: 22px;
+  font-weight: 800;
+  color: #e65f8f;
+}
 }

@@ -3,6 +3,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbywXR36xpEZcR1iUENax0-_
 const form = document.getElementById("gratitudeForm");
 const message = document.getElementById("message");
 const heartContainer = document.getElementById("heartContainer");
+const gratitudeCount = document.getElementById("gratitudeCount");
 
 const modal = document.getElementById("modal");
 const closeModal = document.getElementById("closeModal");
@@ -62,8 +63,9 @@ async function loadData() {
     const response = await fetch(API_URL);
     const data = await response.json();
 
-    gratitudeData = data;
-    renderHearts(gratitudeData);
+   gratitudeData = data;
+renderHearts(gratitudeData);
+updateCount(gratitudeData);
   } catch (error) {
     console.error(error);
   }
@@ -139,3 +141,9 @@ loadData();
 window.addEventListener("resize", () => {
   renderHearts(gratitudeData);
 });
+function updateCount(data) {
+  const count = data.length;
+
+  gratitudeCount.textContent =
+    `❤️ 지금까지 ${count}개의 감사가 담겼어요`;
+}

@@ -17,13 +17,16 @@ body {
 
 .hero {
   width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
   text-align: center;
+  padding: 12px 0 8px;
 }
 
 .guide-image {
   display: block;
   width: 100%;
-  max-width: 920px;
+  max-width: none;
   height: auto;
   margin: 0 auto;
   border-radius: 28px;

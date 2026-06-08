@@ -111,8 +111,21 @@ function renderHearts(data) {
 
       heart.style.left = `${position.x}px`;
       heart.style.bottom = `${position.y}px`;
-      heart.style.background = colors[index % colors.length];
+      
+let randomColor;
 
+do {
+  randomColor =
+    colors[Math.floor(Math.random() * colors.length)];
+} while (
+  index >= 2 &&
+  randomColor === groupData[index - 1]?._color &&
+  randomColor === groupData[index - 2]?._color
+);
+
+item._color = randomColor;
+
+heart.style.background = randomColor;
       heart.addEventListener("click", () => {
         openPrayerModal(item);
       });
@@ -143,7 +156,7 @@ function getSmallHeartPosition(index) {
   const gapX = isMobile ? 30 : 32;
   const gapY = isMobile ? 26 : 28;
 
-  const heartsPerRow = isMobile ? 9 : 10;
+  const heartsPerRow = isMobile ? 8 : 10;
 
   const row = Math.floor(index / heartsPerRow);
   const col = index % heartsPerRow;

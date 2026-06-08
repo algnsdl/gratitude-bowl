@@ -293,4 +293,71 @@ button:hover {
   margin-bottom: 24px;
   color: #8a5b6b;
 }
+.group-baskets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
 }
+
+.group-card {
+  text-align: center;
+}
+
+.group-name {
+  margin-bottom: 10px;
+  font-size: 17px;
+  font-weight: 900;
+  color: #d85c8c;
+}
+
+.small-basket {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  background: #ffffff;
+  border: 5px solid #fff5f8;
+  border-top: 4px solid #ffffff;
+  border-radius: 30px 30px 78px 78px;
+  box-shadow:
+    inset 0 -16px 26px rgba(255, 182, 204, 0.18),
+    0 10px 20px rgba(174, 84, 120, 0.12);
+  overflow: hidden;
+}
+
+.small-basket::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10%;
+  width: 80%;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255, 239, 245, 0.95);
+  z-index: 2;
+}
+
+.small-basket-inner {
+  position: absolute;
+  inset: 30px 10px 10px;
+}
+
+.heart {
+  width: 23px !important;
+  height: 23px !important;
+  box-shadow: 0 2px 4px rgba(131, 47, 71, 0.08) !important;
+}
+
+.heart::before,
+.heart::after {
+  width: 23px !important;
+  height: 23px !important;
+}
+
+.heart::before {
+  top: -11.5px !important;
+}
+
+.heart::after {
+  left: 11.5px !important;
+}}

@@ -126,25 +126,6 @@ function renderHearts(data) {
     groupBaskets.appendChild(card);
   });
 }
-function getHeartPosition(index) {
-  const gapX = window.innerWidth <= 640 ? 42 : 54;
-  const gapY = window.innerWidth <= 640 ? 34 : 42;
-
-  const containerWidth = heartContainer.clientWidth;
-  const heartsPerRow = Math.max(4, Math.floor(containerWidth / gapX));
-
-  const row = Math.floor(index / heartsPerRow);
-  const col = index % heartsPerRow;
-
-  const rowWidth = heartsPerRow * gapX;
-  const startX = Math.max(0, (containerWidth - rowWidth) / 2);
-  const offset = row % 2 === 0 ? 0 : gapX / 2;
-
-  return {
-    x: startX + col * gapX + offset,
-    y: row * gapY + 10
-  };
-}
 
 function openPrayerModal(item) {
   modalGroup.textContent = item.group;

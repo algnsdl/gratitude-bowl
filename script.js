@@ -2,7 +2,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbywXR36xpEZcR1iUENax0-_
 
 const form = document.getElementById("gratitudeForm");
 const message = document.getElementById("message");
-const heartContainer = document.getElementById("heartContainer");
+const groupBaskets = document.getElementById("groupBaskets");
 const gratitudeCount = document.getElementById("gratitudeCount");
 
 const modal = document.getElementById("modal");
@@ -72,41 +72,60 @@ updateCount(gratitudeData);
 }
 
 function renderHearts(data) {
-  heartContainer.innerHTML = "";
+  groupBaskets.innerHTML = "";
 
-  const maxVisible = 100;
-  const visibleData = data.slice(-maxVisible);
+  const groups = ["1속", "2속", "3속", "4속", "5속", "6속", "♥"];
 
-  visibleData.forEach((item, index) => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
+  const colors = [
+    "#ff6f91",
+    "#ff8fab",
+    "#f9a8d4",
+    "#ffd670",
+    "#a9def9",
+    "#cdb4db",
+    "#caffbf",
+    "#fff3b0"
+  ];
 
-    const position = getHeartPosition(index);
-    heart.style.left = `${position.x}px`;
-    heart.style.bottom = `${position.y}px`;
+  groups.forEach((groupName) => {
+    const groupData = data.filter((item) => item.group === groupName);
 
-    const colors = [
-  "#ff6f91",
-  "#ff8fab",
-  "#f9a8d4",
+    const card = document.createElement("div");
+    card.className = "group-card";
 
-  "#ffd670",
-  "#a9def9",
-  "#cdb4db",
-  "#caffbf",
-  "#fff3b0",
-];
+    const title = document.createElement("div");
+    title.className = "group-name";
+    title.textContent = `[${groupName}의 감사그릇 - ${groupData.length}개]`;
 
-    heart.style.background = colors[index % colors.length];
+    const basket = document.createElement("div");
+    basket.className = "small-basket";
 
-    heart.addEventListener("click", () => {
-      openPrayerModal(item);
+    const basketInner = document.createElement("div");
+    basketInner.className = "small-basket-inner";
+
+    groupData.forEach((item, index) => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+
+      const position = getSmallHeartPosition(index);
+
+      heart.style.left = `${position.x}px`;
+      heart.style.bottom = `${position.y}px`;
+      heart.style.background = colors[index % colors.length];
+
+      heart.addEventListener("click", () => {
+        openPrayerModal(item);
+      });
+
+      basketInner.appendChild(heart);
     });
 
-    heartContainer.appendChild(heart);
+    basket.appendChild(basketInner);
+    card.appendChild(title);
+    card.appendChild(basket);
+    groupBaskets.appendChild(card);
   });
 }
-
 function getHeartPosition(index) {
   const gapX = window.innerWidth <= 640 ? 42 : 54;
   const gapY = window.innerWidth <= 640 ? 34 : 42;
@@ -137,6 +156,20 @@ function openPrayerModal(item) {
 
 loadData();
 
+function getSmallHeartPosition(index) {
+  const gapX = 26;
+  const gapY = 23;
+
+  const row = Math.floor(index / 6);
+  const col = index % 6;
+
+  const offset = row % 2 === 0 ? 0 : 13;
+
+  return {
+    x: col * gapX + offset,
+    y: row * gapY + 6
+  };
+}
 window.addEventListener("resize", () => {
   renderHearts(gratitudeData);
 });

@@ -369,3 +369,7 @@ button:hover {
     gap: 34px;
   }
 }
+
+.visual-section h2 {
+  text-align: center;
+}

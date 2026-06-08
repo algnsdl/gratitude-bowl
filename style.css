@@ -373,3 +373,6 @@ button:hover {
 .visual-section h2 {
   text-align: center;
 }
+.visual-section .hint {
+  text-align: center !important;
+}

@@ -276,6 +276,7 @@ button:hover {
   .heart::after {
     left: 18px;
   }
+}
 .count-box {
   text-align: center;
   margin-bottom: 24px !important;
@@ -360,4 +361,4 @@ button:hover {
 
 .heart::after {
   left: 11.5px !important;
-}}
+}

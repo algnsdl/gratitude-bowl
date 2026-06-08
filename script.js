@@ -138,17 +138,21 @@ function openPrayerModal(item) {
 loadData();
 
 function getSmallHeartPosition(index) {
-  const gapX = 26;
-  const gapY = 23;
+  const isMobile = window.innerWidth <= 640;
 
-  const row = Math.floor(index / 6);
-  const col = index % 6;
+  const gapX = isMobile ? 30 : 32;
+  const gapY = isMobile ? 26 : 28;
 
-  const offset = row % 2 === 0 ? 0 : 13;
+  const heartsPerRow = isMobile ? 9 : 10;
+
+  const row = Math.floor(index / heartsPerRow);
+  const col = index % heartsPerRow;
+
+  const offset = row % 2 === 0 ? 0 : gapX / 2;
 
   return {
-    x: col * gapX + offset,
-    y: row * gapY + 6
+    x: 18 + col * gapX + offset,
+    y: 14 + row * gapY
   };
 }
 window.addEventListener("resize", () => {

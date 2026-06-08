@@ -176,5 +176,5 @@ function updateCount(data) {
   const count = Array.isArray(data) ? data.length : 0;
 
   gratitudeCount.textContent =
-    `❤️ 지금까지 ${count}개의 감사가 담겼어요!`;
+    `❤️ 총 ${count}개의 감사가 담겼어요!`;
 }

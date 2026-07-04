@@ -296,9 +296,8 @@ button:hover {
 }
 .group-baskets {
   display: grid !important;
-  grid-template-columns: repeat(2, 360px);
-  justify-content: center;
-  gap: 42px 36px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 42px 28px;
   margin-top: 32px;
 }
 
@@ -315,7 +314,9 @@ button:hover {
 
 .small-basket {
   position: relative;
-  width: 360px;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
   height: 420px;
   background: #ffffff;
   border: 5px solid #fff5f8;

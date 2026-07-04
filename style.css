@@ -315,7 +315,7 @@ button:hover {
 .small-basket {
   position: relative;
   width: 100%;
-  height: 230px;
+  height: 480px;
   background: #ffffff;
   border: 5px solid #fff5f8;
   border-top: 4px solid #ffffff;
@@ -367,6 +367,9 @@ button:hover {
   .group-baskets {
     grid-template-columns: 1fr !important;
     gap: 34px;
+  }
+.small-basket {
+    height: 360px;
   }
 }
 
